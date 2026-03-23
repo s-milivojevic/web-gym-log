@@ -1,11 +1,15 @@
-package main
+package models
 
-import "time"
+import (
+	"time"
+
+	"go.mongodb.org/mongo-driver/v2/bson"
+)
 
 type Exercise struct {
-	ID   string
-	Name string
-	Type string
+	ID   bson.ObjectID `bson:"_id" json:"id"`
+	Name string        `bson:"name" json:"name"`
+	Type string        `bson:"type" json:"type"`
 }
 
 type ExerciseLog struct {
