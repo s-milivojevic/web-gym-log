@@ -14,9 +14,9 @@ type Exercise struct {
 
 type ExerciseLog struct {
 	ID        bson.ObjectID `bson:"_id" json:"id"`
-	Exercises Exercise
-	Reps      []int
-	Sets      []int
+	Exercises Exercise      `bson:"exercises" json:"exercises"`
+	Reps      []int         `bson:"reps" json:"reps"`
+	Sets      []int         `bson:"sets" json:"sets"`
 }
 
 type Training struct {
@@ -25,6 +25,7 @@ type Training struct {
 	Exercises []ExerciseLog
 	Comment   string
 	UserId    string
+	Duration  time.Duration
 }
 
 type User struct {
@@ -58,6 +59,13 @@ type CreateExerciseRequest struct {
 
 type CreateExerciseLogRequest struct {
 	Exercises CreateExerciseRequest `json:"exercises"`
+	Sets      []int
+	Reps      []int
+}
+
+type UpdateExerciseLogRequest struct {
+	ID        string                `bson:"_id" json:"id"`
+	Exercises UpdateExerciseRequest `json:"exercises"`
 	Sets      []int
 	Reps      []int
 }

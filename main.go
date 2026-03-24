@@ -27,7 +27,13 @@ func main() {
 	exercise_handler := handlers.NewExerciseHandler(exerciseDao)
 	routers.RegisterExerciseRoutes(exercise_mux, exercise_handler)
 
+	exercise_log_mux := http.NewServeMux()
+	exercise_log_dao := dao.NewExerciseLogDao(db, "gym-log", "exercise_logs")
+	exercise_log_handler := handlers.NewExerciseLogHandler(exercise_log_dao)
+	routers.RegisterExerciseLogRoutes(exercise_log_mux, exercise_log_handler)
+
 	mainMux.Handle("/exercise/", http.StripPrefix("/exercise", exercise_mux))
+	mainMux.Handle("/exercise_log/", http.StripPrefix("/exercise_log", exercise_log_mux))
 
 	fmt.Println("Server is listening on http://localhost:8080")
 	http.ListenAndServe(":8080", mainMux)

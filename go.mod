@@ -2,7 +2,10 @@ module gym-log
 
 go 1.25.5
 
-require go.mongodb.org/mongo-driver/v2 v2.5.0
+require (
+	go.mongodb.org/mongo-driver v1.17.9
+	go.mongodb.org/mongo-driver/v2 v2.5.0
+)
 
 require (
 	github.com/klauspost/compress v1.17.6 // indirect
