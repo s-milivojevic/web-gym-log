@@ -13,6 +13,7 @@ type Exercise struct {
 }
 
 type ExerciseLog struct {
+	ID        bson.ObjectID `bson:"_id" json:"id"`
 	Exercises Exercise
 	Reps      []int
 	Sets      []int
@@ -42,4 +43,21 @@ type UserInfo struct {
 	Height        float64
 	CurrentWeight float64
 	Age           int
+}
+
+type UpdateExerciseRequest struct {
+	Name    string `json:"name"`
+	NewName string `json:"newName"`
+	NewType string `json:"newType"`
+}
+
+type CreateExerciseRequest struct {
+	Name string `json:"name"`
+	Type string `json:"type"`
+}
+
+type CreateExerciseLogRequest struct {
+	Exercises CreateExerciseRequest `json:"exercises"`
+	Sets      []int
+	Reps      []int
 }
