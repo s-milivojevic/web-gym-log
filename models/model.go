@@ -20,19 +20,16 @@ type ExerciseLog struct {
 }
 
 type Training struct {
-	ID        string
-	Date      time.Time
-	Exercises []ExerciseLog
-	Comment   string
-	UserId    string
-	Duration  time.Duration
+	ID        bson.ObjectID `bson:"_id" json:"id"`
+	Date      time.Time     `bson:"date" json:"date"`
+	Exercises []ExerciseLog `bson:"exercises" json:"exercises"`
+	Comment   string        `bson:"comment" json:"comment"`
+	UserId    bson.ObjectID `bson:"user_id" json:"user_id"`
+	Duration  time.Duration `bson:"duration" json:"duration"`
 }
 
 type User struct {
 	ID        string
-	Name      string
-	LastName  string
-	Email     string
 	Password  string
 	Username  string
 	Trainings []Training

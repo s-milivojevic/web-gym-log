@@ -69,6 +69,7 @@ func (h *ExerciseHandler) GetExercises(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// TODO filter with id not with name or type
 func (h *ExerciseHandler) UpdateExercise(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPut {
 		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
@@ -106,6 +107,7 @@ func (h *ExerciseHandler) UpdateExercise(w http.ResponseWriter, r *http.Request)
 
 }
 
+// TODO filter with id
 func (h *ExerciseHandler) DeleteExercise(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodDelete {
 		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
