@@ -66,3 +66,8 @@ type UpdateExerciseLogRequest struct {
 	Sets      []int
 	Reps      []int
 }
+
+type ExerciseLogTrainingRequest struct {
+	ExerciseLog ExerciseLog `bson:"exercises" json:"exercises"`
+	TrainingId  string      `bson:"user_id" json:"user_id"`
+}
