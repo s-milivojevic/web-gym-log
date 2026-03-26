@@ -32,15 +32,10 @@ type User struct {
 	ID        string
 	Password  string
 	Username  string
+	Email     string
+	Name      string
+	LastName  string
 	Trainings []Training
-	UserInfo  UserInfo
-}
-
-type UserInfo struct {
-	StartWeight   float64
-	Height        float64
-	CurrentWeight float64
-	Age           int
 }
 
 type UpdateExerciseRequest struct {
